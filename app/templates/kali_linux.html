@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block title %}كالي لينكس - عبدالعزيز للأمن السيبراني{% endblock %}
+
+{% block content %}
+    <!-- قسم كالي لينكس -->
+    <section class="section">
+        <div class="cyber-border card">
+            <h1 class="section-title hacker-text"><i class="fas fa-dragon"></i> نظام كالي لينكس</h1>
+            <p style="margin-bottom: 2rem;">كالي لينكس هو توزيعة لينكس متخصصة في اختبار الاختراق والأمن السيبراني، تحتوي على مئات الأدوات المدمجة للاختبار الأخلاقي.</p>
+            
+            <div class="grid grid-2">
+                <div>
+                    <h2 style="color: var(--primary-color); margin-bottom: 1rem;">مميزات كالي لينكس</h2>
+                    <ul class="list list-disc">
+                        <li>أكثر من 600 أداة اختبار اختراق مثبتة مسبقاً</li>
+                        <li>دعم واسع للأجهزة والمعدات اللاسلكية</li>
+                        <li>بيئة مخصصة للأمن السيبراني</li>
+                        <li>تحديثات منتظمة ودعم مجتمعي قوي</li>
+                        <li>متوافق مع معايير الاختبار الأخلاقي</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h2 style="color: var(--primary-color); margin-bottom: 1rem;">تثبيت كالي لينكس</h2>
+                    <ol class="list list-decimal">
+                        <li>قم بتحميل صورة ISO من <a href="https://www.kali.org/downloads/" target="_blank" style="color: var(--primary-color);">الموقع الرسمي</a></li>
+                        <li>قم بإنشاء وسيط تثبيت باستخدام Rufus أو Etcher</li>
+                        <li>قم بإعادة تشغيل الجهاز والإقلاع من وسيط التثبيت</li>
+                        <li>اتبع خطوات المثبت لتثبيت النظام</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الأدوات -->
+    <section class="section">
+        <h2 class="section-title hacker-text">أدوات كالي لينكس الشائعة</h2>
+        <div class="grid grid-3">
+            {% for tool in tools %}
+                <div class="card cyber-border hover-lift">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">{{ tool.name }}</h3>
+                    <p style="margin-bottom: 1rem;">{{ tool.description }}</p>
+                    <div class="code-block">
+                        <code>{{ tool.command }}</code>
+                    </div>
+                    {% if tool.image_url %}
+                        <img src="{{ tool.image_url }}" alt="{{ tool.name }}" class="img-fluid" style="border-radius: 4px;">
+                    {% endif %}
+                </div>
+            {% else %}
+                <div class="card cyber-border" style="grid-column: span 3; text-align: center;">
+                    <p>لا توجد أدوات متاحة حالياً.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- قسم الدروس التعليمية -->
+    <section class="section">
+        <h2 class="section-title hacker-text">دروس تعليمية لكالي لينكس</h2>
+        <div class="grid grid-2">
+            {% for tutorial in tutorials %}
+                <div class="card cyber-border">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">{{ tutorial.title }}</h3>
+                    <p style="margin-bottom: 1rem;">{{ tutorial.content|truncate(200) }}</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="badge badge-primary">{{ tutorial.difficulty }}</span>
+                        <a href="#" style="color: var(--primary-color);">قراءة المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+            {% else %}
+                <div class="card cyber-border" style="grid-column: span 2; text-align: center;">
+                    <p>لا توجد دروس تعليمية متاحة حالياً.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- قسم الموارد الإضافية -->
+    <section class="section">
+        <div class="cyber-border card">
+            <h2 class="section-title hacker-text">موارد إضافية</h2>
+            <div class="grid grid-3">
+                <a href="https://www.kali.org" target="_blank" class="card hover-lift" style="text-decoration: none; color: inherit;">
+                    <div class="icon-center">
+                        <i class="fas fa-globe icon-lg" style="color: var(--primary-color);"></i>
+                    </div>
+                    <h3 style="text-align: center; margin-bottom: 1rem;">الموقع الرسمي</h3>
+                    <p style="text-align: center;">الموقع الرسمي لكالي لينكس للحصول على أحدث الإصدارات والتوثيق</p>
+                </a>
+                
+                <a href="https://forums.kali.org" target="_blank" class="card hover-lift" style="text-decoration: none; color: inherit;">
+                    <div class="icon-center">
+                        <i class="fas fa-comments icon-lg" style="color: var(--primary-color);"></i>
+                    </div>
+                    <h3 style="text-align: center; margin-bottom: 1rem;">منتديات المجتمع</h3>
+                    <p style="text-align: center;">منتديات مجتمع كالي لينكس للحصول على المساعدة وتبادل الخبرات</p>
+                </a>
+                
+                <a href="https://www.offensive-security.com" target="_blank" class="card hover-lift" style="text-decoration: none; color: inherit;">
+                    <div class="icon-center">
+                        <i class="fas fa-graduation-cap icon-lg" style="color: var(--primary-color);"></i>
+                    </div>
+                    <h3 style="text-align: center; margin-bottom: 1rem;">دورات تدريبية</h3>
+                    <p style="text-align: center;">دورات Offensive Security الرسمية لتعلم اختبار الاختراق باستخدام كالي لينكس</p>
+                </a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

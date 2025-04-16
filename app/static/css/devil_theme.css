@@ -1,0 +1,737 @@
+/* ===== الألوان الأساسية - سمة شيطانية ===== */
+:root {
+  --primary-color: #ff0000;
+  --primary-dark: #cc0000;
+  --secondary-color: #111;
+  --text-color: #fff;
+  --dark-bg: #000;
+  --card-bg: #111;
+  --card-border: #222;
+  --input-bg: #222;
+  --success: #00ff00;
+  --warning: #ffff00;
+  --danger: #ff0000;
+  --info: #00ffff;
+  --accent-color: #ff3300;
+  --accent-dark: #cc2900;
+}
+
+/* ===== تنسيقات عامة ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Tajawal", sans-serif;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-color);
+  overflow-x: hidden;
+  line-height: 1.6;
+  direction: rtl;
+  background-image: url("../images/devil_bg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+/* ===== السكرولبار ===== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+/* ===== تأثيرات النص ===== */
+.devil-text {
+  text-shadow: 0 0 10px var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* ===== الحدود ===== */
+.devil-border {
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* ===== الحاويات ===== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* ===== الهيدر ===== */
+.header {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid var(--primary-color);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+/* ===== القائمة ===== */
+.nav {
+  background-color: rgba(17, 17, 17, 0.8);
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.nav-link i {
+  margin-left: 0.5rem;
+}
+
+/* ===== الأقسام ===== */
+.section {
+  margin: 2rem 0;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+/* ===== البطاقات ===== */
+.card {
+  background-color: rgba(17, 17, 17, 0.9);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--accent-color);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.card-content {
+  margin-bottom: 1rem;
+}
+
+/* ===== الشبكة ===== */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ===== الأزرار ===== */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+}
+
+.btn-danger {
+  background-color: var(--danger);
+  color: var(--text-color);
+}
+
+.btn-danger:hover {
+  background-color: #c00;
+}
+
+.btn-success {
+  background-color: var(--success);
+  color: var(--dark-bg);
+}
+
+.btn-success:hover {
+  background-color: #0c0;
+}
+
+/* ===== النماذج ===== */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px var(--primary-color);
+}
+
+/* ===== التنبيهات ===== */
+.alert {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.alert-success {
+  background-color: rgba(0, 255, 0, 0.2);
+  border: 1px solid var(--success);
+  color: var(--success);
+}
+
+.alert-danger {
+  background-color: rgba(255, 0, 0, 0.2);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+}
+
+.alert-warning {
+  background-color: rgba(255, 255, 0, 0.2);
+  border: 1px solid var(--warning);
+  color: var(--warning);
+}
+
+.alert-info {
+  background-color: rgba(0, 255, 255, 0.2);
+  border: 1px solid var(--info);
+  color: var(--info);
+}
+
+/* ===== الفوتر ===== */
+.footer {
+  background-color: rgba(17, 17, 17, 0.8);
+  border-top: 1px solid var(--accent-color);
+  padding: 2rem 0;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-link {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: var(--primary-color);
+}
+
+/* ===== الكود ===== */
+.code-block {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1rem;
+  border-radius: 4px;
+  font-family: monospace;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+  border-left: 3px solid var(--primary-color);
+}
+
+.code-block pre {
+  margin: 0;
+  color: var(--primary-color);
+}
+
+/* ===== الشارات ===== */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-primary {
+  background-color: rgba(255, 0, 0, 0.2);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.badge-success {
+  background-color: rgba(0, 255, 0, 0.2);
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.badge-warning {
+  background-color: rgba(255, 255, 0, 0.2);
+  color: var(--warning);
+  border: 1px solid var(--warning);
+}
+
+.badge-danger {
+  background-color: rgba(255, 0, 0, 0.2);
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+/* ===== تأثيرات إضافية ===== */
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.hover-lift {
+  transition: transform 0.3s;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.5);
+}
+
+/* ===== زر العودة للأعلى ===== */
+.scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  z-index: 99;
+}
+
+.scroll-top:hover {
+  background-color: var(--primary-dark);
+  transform: scale(1.1);
+}
+
+.hidden {
+  display: none;
+}
+
+/* ===== خلفية الماتريكس ===== */
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* ===== تنبيه الأمان ===== */
+.security-alert {
+  background-color: rgba(255, 0, 0, 0.3);
+  text-align: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--danger);
+}
+
+/* ===== تخطيط الصفحة ===== */
+.page-content {
+  min-height: calc(100vh - 200px);
+  padding: 2rem 0;
+}
+
+/* ===== مربع البحث ===== */
+.search-box {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  flex: 1;
+}
+
+/* ===== الأيقونات ===== */
+.icon {
+  margin-left: 0.5rem;
+}
+
+.icon-lg {
+  font-size: 2rem;
+}
+
+.icon-center {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+/* ===== الشعار المتحرك ===== */
+.logo-animation {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 2rem;
+}
+
+.logo-animation svg path {
+  fill: var(--primary-color);
+  stroke: var(--primary-color);
+  stroke-width: 1;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 3s linear forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ===== الشريط المتحرك ===== */
+.moving-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  width: 100%;
+  z-index: 1001;
+  animation: moveBar 3s linear infinite;
+}
+
+@keyframes moveBar {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ===== المودال ===== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.close-modal:hover {
+  color: var(--primary-color);
+}
+
+/* ===== تأثير الكتابة ===== */
+.typing-text {
+  overflow: hidden;
+  border-right: 2px solid var(--primary-color);
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--primary-color);
+  }
+}
+
+/* ===== تأثير الوميض ===== */
+.blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ===== تأثير الجليتش ===== */
+.glitch {
+  position: relative;
+  color: var(--primary-color);
+  text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.05em 0
+    rgba(255, 0, 0, 0.75);
+  animation: glitch 500ms infinite;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.05em 0
+      rgba(255, 0, 0, 0.75);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.05em 0
+      rgba(255, 0, 0, 0.75);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(255, 0, 0, 0.75), -0.05em -0.05em 0
+      rgba(255, 0, 0, 0.75);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(255, 0, 0, 0.75), -0.05em -0.05em 0
+      rgba(255, 0, 0, 0.75);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75), 0.05em 0 0 rgba(255, 0, 0, 0.75), 0 -0.05em 0
+      rgba(255, 0, 0, 0.75);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75), 0.05em 0 0 rgba(255, 0, 0, 0.75), 0 -0.05em 0
+      rgba(255, 0, 0, 0.75);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.025em 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0
+      rgba(255, 0, 0, 0.75);
+  }
+}
+
+/* ===== تأثير النار ===== */
+.fire-text {
+  color: #fff;
+  text-shadow:
+    0 -0.05em 0.2em #fff, 0.01em -0.02em 0.15em #ff0, 0.01em -0.05em 0.15em #ff3, 0.02em -0.15em 0.2em #f90,
+    0.04em -0.2em 0.3em #f70, 0.05em -0.25em 0.4em #f30, 0.06em -0.2em 0.9em #f00, 0.1em -0.1em 1em #f00;
+  animation: fire 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes fire {
+  0% {
+    text-shadow:
+      0 -0.05em 0.2em #fff, 0.01em -0.02em 0.15em #ff0, 0.01em -0.05em 0.15em #ff3, 0.02em -0.15em 0.2em #f90,
+      0.04em -0.2em 0.3em #f70, 0.05em -0.25em 0.4em #f30, 0.06em -0.2em 0.9em #f00, 0.1em -0.1em 1em #f00;
+  }
+  100% {
+    text-shadow:
+      0 -0.05em 0.2em #fff, 0.01em -0.02em 0.15em #ff0, 0.01em -0.05em 0.15em #ff3, 0.02em -0.15em 0.2em #f90,
+      0.04em -0.2em 0.3em #f70, 0.05em -0.25em 0.4em #f30, 0.06em -0.2em 0.9em #f00, 0.1em -0.1em 1em #f00,
+      0 -0.1em 2em #f00;
+  }
+}
+
+/* ===== تأثير الدم ===== */
+.blood {
+  color: #fff;
+  text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #bc13fe, 0 0 7px #bc13fe, 0 0 8px #bc13fe, 0 0 10px
+    #bc13fe, 0 0 15px #bc13fe;
+  animation: blood 5s ease-in-out infinite alternate;
+}
+
+@keyframes blood {
+  0% {
+    color: #fff;
+    text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #bc13fe, 0 0 7px #bc13fe, 0 0 8px #bc13fe, 0 0 10px
+      #bc13fe, 0 0 15px #bc13fe;
+  }
+  100% {
+    color: #ff0000;
+    text-shadow: 0 0 1px #ff0000, 0 0 2px #ff0000, 0 0 3px #ff0000, 0 0 4px #ff0000, 0 0 7px #ff0000, 0 0 8px #ff0000, 0
+      0 10px #ff0000, 0 0 15px #ff0000;
+  }
+}
+
+/* ===== تأثير الجوكر ===== */
+.joker-text {
+  color: #4cbb17;
+  text-shadow: 0 0 5px #4cbb17, 0 0 10px #4cbb17, 0 0 15px #4cbb17, 0 0 20px #4cbb17;
+  animation: joker 2s ease-in-out infinite alternate;
+}
+
+@keyframes joker {
+  0% {
+    color: #4cbb17;
+    text-shadow: 0 0 5px #4cbb17, 0 0 10px #4cbb17, 0 0 15px #4cbb17, 0 0 20px #4cbb17;
+  }
+  50% {
+    color: #9400d3;
+    text-shadow: 0 0 5px #9400d3, 0 0 10px #9400d3, 0 0 15px #9400d3, 0 0 20px #9400d3;
+  }
+  100% {
+    color: #4cbb17;
+    text-shadow: 0 0 5px #4cbb17, 0 0 10px #4cbb17, 0 0 15px #4cbb17, 0 0 20px #4cbb17;
+  }
+}
+
+/* ===== تأثير أنونيموس ===== */
+.anonymous-text {
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+  animation: anonymous 3s ease-in-out infinite alternate;
+}
+
+@keyframes anonymous {
+  0% {
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+  }
+  50% {
+    color: #ffffff;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+  }
+  100% {
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+  }
+}
+
+/* ===== قسم الشعار المتحرك لأنونيموس ===== */
+.anonymous-logo {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 2rem;
+  position: relative;
+}
+
+.anonymous-logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+.anonymous-logo path {
+  fill: var(--primary-color);
+  stroke: var(--primary-color);
+  stroke-width: 1;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 3s linear forwards;
+}

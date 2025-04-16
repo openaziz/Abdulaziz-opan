@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+
+{% block title %}تيرمكس - عبدالعزيز للأمن السيبراني{% endblock %}
+
+{% block content %}
+    <!-- قسم تيرمكس -->
+    <section class="section">
+        <div class="cyber-border card">
+            <h1 class="section-title hacker-text"><i class="fas fa-mobile-alt"></i> تيرمكس للهواتف الذكية</h1>
+            <p style="margin-bottom: 2rem;">تيرمكس هو تطبيق محاكي طرفية لنظام Android يتيح لك تشغيل بيئة Linux على هاتفك الذكي بدون روت، مما يسمح باستخدام أدوات الأمن السيبراني في أي مكان.</p>
+            
+            <div class="grid grid-2">
+                <div>
+                    <h2 style="color: var(--primary-color); margin-bottom: 1rem;">مميزات تيرمكس</h2>
+                    <ul class="list list-disc">
+                        <li>تثبيت أدوات Linux على هاتفك الذكي</li>
+                        <li>لا يتطلب صلاحيات روت للعمل</li>
+                        <li>دعم لغات برمجة متعددة مثل Python و Ruby و PHP</li>
+                        <li>إمكانية تثبيت أدوات الأمن السيبراني</li>
+                        <li>واجهة سطر أوامر كاملة</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h2 style="color: var(--primary-color); margin-bottom: 1rem;">تثبيت تيرمكس</h2>
+                    <ol class="list list-decimal">
+                        <li>قم بتحميل تيرمكس من <a href="https://f-droid.org/en/packages/com.termux/" target="_blank" style="color: var(--primary-color);">F-Droid</a> (الإصدار الموصى به)</li>
+                        <li>قم بتثبيت التطبيق على هاتفك</li>
+                        <li>افتح التطبيق وانتظر حتى يتم تهيئة البيئة</li>
+                        <li>قم بتحديث الحزم باستخدام الأمر: <code style="background-color: var(--gray-900); padding: 0.25rem 0.5rem; border-radius: 4px; color: var(--primary-color);">pkg update && pkg upgrade</code></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الأوامر الأساسية -->
+    <section class="section">
+        <h2 class="section-title hacker-text">الأوامر الأساسية في تيرمكس</h2>
+        <div class="card cyber-border">
+            <div class="code-block">
+                <pre style="color: #0f0;">$ pkg update && pkg upgrade
+# تحديث قائمة الحزم وترقية الحزم المثبتة
+
+$ pkg install python
+# تثبيت لغة البرمجة Python
+
+$ pkg install git
+# تثبيت نظام التحكم بالإصدارات Git
+
+$ termux-setup-storage
+# إعداد الوصول إلى وحدة التخزين
+
+$ cd storage/shared
+# الانتقال إلى مجلد التخزين المشترك</pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الأدوات -->
+    <section class="section">
+        <h2 class="section-title hacker-text">أدوات الأمن السيبراني في تيرمكس</h2>
+        <div class="grid grid-3">
+            {% for tool in tools %}
+                <div class="card cyber-border hover-lift">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">{{ tool.name }}</h3>
+                    <p style="margin-bottom: 1rem;">{{ tool.description }}</p>
+                    <div class="code-block">
+                        <code>{{ tool.command }}</code>
+                    </div>
+                    {% if tool.image_url %}
+                        <img src="{{ tool.image_url }}" alt="{{ tool.name }}" class="img-fluid" style="border-radius: 4px;">
+                    {% endif %}
+                </div>
+            {% else %}
+                <div class="card cyber-border" style="grid-column: span 3; text-align: center;">
+                    <p>لا توجد أدوات متاحة حالياً.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- قسم المشاريع -->
+    <section class="section">
+        <h2 class="section-title hacker-text">مشاريع أمنية باستخدام تيرمكس</h2>
+        <div class="grid grid-2">
+            <div class="card cyber-border">
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">ماسح الشبكة البسيط</h3>
+                <p style="margin-bottom: 1rem;">مشروع بسيط لمسح الشبكة المحلية واكتشاف الأجهزة المتصلة باستخدام Python.</p>
+                <div class="code-block code-container">
+                    <pre style="color: var(--primary-color);">#!/usr/bin/env python3
+import os
+import socket
+import subprocess
+from datetime import datetime
+
+# مسح نطاق الشبكة المحلية
+network = "192.168.1."
+print(f"[*] بدء مسح الشبكة: {network}0/24")
+print(f"[*] وقت البدء: {datetime.now().strftime('%H:%M:%S')}")
+
+# مسح الأجهزة النشطة
+active_hosts = []
+for i in range(1, 255):
+    ip = network + str(i)
+    response = os.system(f"ping -c 1 -W 1 {ip} > /dev/null 2>&1")
+    if response == 0:
+        try:
+            hostname = socket.gethostbyaddr(ip)[0]
+        except socket.herror:
+            hostname = "غير معروف"
+        print(f"[+] {ip} نشط - {hostname}")
+        active_hosts.append(ip)
+
+print(f"[*] اكتمل المسح: {len(active_hosts)} جهاز نشط")</pre>
+                </div>
+                <div style="text-align: left; margin-top: 1rem;">
+                    <button class="btn btn-primary copy-code">
+                        <i class="fas fa-copy"></i> نسخ الكود
+                    </button>
+                </div>
+            </div>
+            
+            <div class="card cyber-border">
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">أداة فحص كلمات المرور</h3>
+                <p style="margin-bottom: 1rem;">أداة بسيطة لفحص قوة كلمات المرور وتقييمها باستخدام Python.</p>
+                <div class="code-block code-container">
+                    <pre style="color: var(--primary-color);">#!/usr/bin/env python3
+import re
+import getpass
+
+def check_password_strength(password):
+    score = 0
+    feedback = []
+    
+    # التحقق من الطول
+    if len(password) < 8:
+        feedback.append("كلمة المرور قصيرة جداً (أقل من 8 أحرف)")
+    else:
+        score += 1
+    
+    # التحقق من وجود أحرف كبيرة
+    if re.search(r'[A-Z]', password):
+        score += 1
+    else:
+        feedback.append("يجب أن تحتوي على حرف كبير واحد على الأقل")
+    
+    # التحقق من وجود أحرف صغيرة
+    if re.search(r'[a-z]', password):
+        score += 1
+    else:
+        feedback.append("يجب أن تحتوي على حرف صغير واحد على الأقل")
+    
+    # التحقق من وجود أرقام
+    if re.search(r'[0-9]', password):
+        score += 1
+    else:
+        feedback.append("يجب أن تحتوي على رقم واحد على الأقل")
+    
+    # التحقق من وجود رموز خاصة
+    if re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
+        score += 1
+    else:
+        feedback.append("يجب أن تحتوي على رمز خاص واحد على الأقل")
+    
+    # تقييم قوة كلمة المرور
+    if score < 2:
+        strength = "ضعيفة جداً"
+    elif score < 3:
+        strength = "ضعيفة"
+    elif score < 4:
+        strength = "متوسطة"
+    elif score < 5:
+        strength = "قوية"
+    else:
+        strength = "قوية جداً"
+    
+    return strength, feedback
+
+# اختبار الأداة
+print("=== أداة فحص قوة كلمات المرور ===")
+password = getpass.getpass("أدخل كلمة المرور للفحص: ")
+
+strength, feedback = check_password_strength(password)
+print(f"\nقوة كلمة المرور: {strength}")
+
+if feedback:
+    print("\nملاحظات لتحسين كلمة المرور:")
+    for note in feedback:
+        print(f"- {note}")</pre>
+                </div>
+                <div style="text-align: left; margin-top: 1rem;">
+                    <button class="btn btn-primary copy-code">
+                        <i class="fas fa-copy"></i> نسخ الكود
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المو��رد الإضافية -->
+    <section class="section">
+        <div class="cyber-border card">
+            <h2 class="section-title hacker-text">موارد إضافية</h2>
+            <div class="grid grid-3">
+                <a href="https://termux.com" target="_blank" class="card hover-lift" style="text-decoration: none; color: inherit;">
+                    <div class="icon-center">
+                        <i class="fas fa-globe icon-lg" style="color: var(--primary-color);"></i>
+                    </div>
+                    <h3 style="text-align: center; margin-bottom: 1rem;">الموقع الرسمي</h3>
+                    <p style="text-align: center;">الموقع الرسمي لتيرمكس للحصول على أحدث المعلومات والتوثيق</p>
+                </a>
+                
+                <a href="https://wiki.termux.com" target="_blank" class="card hover-lift" style="text-decoration: none; color: inherit;">
+                    <div class="icon-center">
+                        <i class="fas fa-book icon-lg" style="color: var(--primary-color);"></i>
+                    </div>
+                    <h3 style="text-align: center; margin-bottom: 1rem;">ويكي تيرمكس</h3>
+                    <p style="text-align: center;">دليل شامل لاستخدام تيرمكس وحل المشكلات الشائعة</p>
+                </a>
+                
+                <a href="https://github.com/termux/termux-packages" target="_blank" class="card hover-lift" style="text-decoration: none; color: inherit;">
+                    <div class="icon-center">
+                        <i class="fab fa-github icon-lg" style="color: var(--primary-color);"></i>
+                    </div>
+                    <h3 style="text-align: center; margin-bottom: 1rem;">مستودع GitHub</h3>
+                    <p style="text-align: center;">مستودع حزم تيرمكس على GitHub للمساهمة وتتبع المشكلات</p>
+                </a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

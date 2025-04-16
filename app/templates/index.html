@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %}عبدالعزيز - مركز الأمن السيبراني{% endblock %}
+
+{% block content %}
+    <!-- قسم الترحيب -->
+    <section class="section">
+        <div class="devil-border card">
+            <div class="anonymous-logo">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 10 C25 10, 10 30, 10 50 C10 75, 25 90, 50 90 C75 90, 90 75, 90 50 C90 30, 75 10, 50 10 Z M50 20 C65 20, 80 35, 80 50 C80 65, 65 80, 50 80 C35 80, 20 65, 20 50 C20 35, 35 20, 50 20 Z M30 40 C35 40, 35 60, 30 60 Z M70 40 C65 40, 65 60, 70 60 Z M30 70 C50 80, 70 70, 70 70 Z" />
+                </svg>
+            </div>
+            <h1 class="section-title fire-text">مرحباً بك في مركز عبدالعزيز للأمن السيبراني</h1>
+            <p class="typing-text" style="text-align: center; margin-bottom: 2rem;">منصة متكاملة لتعلم أساسيات الأمن السيبراني وأدوات الاختبار الأخلاقي</p>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="{{ url_for('pages.kali_linux') }}" class="btn btn-primary">
+                    <i class="fas fa-terminal"></i> تعلم كالي لينكس
+                </a>
+                <a href="{{ url_for('pages.termux') }}" class="btn btn-outline">
+                    <i class="fas fa-mobile-alt"></i> تعلم تيرمكس
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الميزات -->
+    <section class="section">
+        <h2 class="section-title joker-text">ميزات المنصة</h2>
+        <div class="grid grid-4">
+            <div class="card devil-border hover-lift">
+                <div class="icon-center">
+                    <i class="fas fa-shield-alt icon-lg" style="color: var(--primary-color);"></i>
+                </div>
+                <h3 style="text-align: center; margin-bottom: 1rem;" class="devil-text">الأمن السيبراني</h3>
+                <p>تعلم أساسيات الأمن السيبراني وكيفية حماية نفسك من الهجمات الإلكترونية.</p>
+            </div>
+            
+            <div class="card devil-border hover-lift">
+                <div class="icon-center">
+                    <i class="fas fa-terminal icon-lg" style="color: var(--primary-color);"></i>
+                </div>
+                <h3 style="text-align: center; margin-bottom: 1rem;" class="devil-text">كالي لينكس</h3>
+                <p>دروس تفصيلية حول استخدام نظام كالي لينكس وأدواته المختلفة للاختبار الأخلاقي.</p>
+            </div>
+            
+            <div class="card devil-border hover-lift">
+                <div class="icon-center">
+                    <i class="fas fa-mobile-alt icon-lg" style="color: var(--primary-color);"></i>
+                </div>
+                <h3 style="text-align: center; margin-bottom: 1rem;" class="devil-text">تيرمكس</h3>
+                <p>تعلم استخدام تطبيق تيرمكس على الهواتف الذكية لتنفيذ أدوات الأمن السيبراني.</p>
+            </div>
+            
+            <div class="card devil-border hover-lift">
+                <div class="icon-center">
+                    <i class="fas fa-lock icon-lg" style="color: var(--primary-color);"></i>
+                </div>
+                <h3 style="text-align: center; margin-bottom: 1rem;" class="devil-text">حماية الحسابات</h3>
+                <p>نصائح وإرشادات لحماية حساباتك الشخصية من الاختراق وتأمين بياناتك.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم النصائح الأمنية -->
+    <section class="section">
+        <h2 class="section-title anonymous-text">أحدث النصائح الأمنية</h2>
+        <div class="grid grid-3">
+            {% for tip in tips %}
+                <div class="card devil-border">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">{{ tip.title }}</h3>
+                    <p style="margin-bottom: 1rem;">{{ tip.content|truncate(150) }}</p>
+                    <div>
+                        <span class="badge badge-primary">{{ tip.category }}</span>
+                    </div>
+                </div>
+            {% else %}
+                <div class="card devil-border" style="grid-column: span 3; text-align: center;">
+                    <p>لا توجد نصائح أمنية حالياً.</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="#" class="btn btn-outline">
+                <i class="fas fa-shield-alt"></i> المزيد من النصائح الأمنية
+            </a>
+        </div>
+    </section>
+
+    <!-- قسم البحث -->
+    <section class="section">
+        <div class="devil-border card">
+            <h2 class="section-title blood">ابحث في المنصة</h2>
+            <form action="#" method="get" class="search-box">
+                <input type="text" name="q" placeholder="ابحث عن أدوات، نصائح، دروس..." class="form-input search-input">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search"></i> بحث
+                </button>
+            </form>
+        </div>
+    </section>
+{% endblock %}
